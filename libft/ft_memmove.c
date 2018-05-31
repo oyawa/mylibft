@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oyawa <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/25 11:43:03 by oyawa             #+#    #+#             */
-/*   Updated: 2018/05/31 16:05:29 by oyawa            ###   ########.fr       */
+/*   Created: 2018/05/31 12:15:07 by oyawa             #+#    #+#             */
+/*   Updated: 2018/05/31 12:45:07 by oyawa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *haystack, const char *needle)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	int i;
-	int j;
-	
-	i = 0;
-	if (*needle == '\0')
-		return ((char *)haystack);
-	while (haystack[i] != '\0')
+	unsigned char *tmp1;
+	unsigned char *tmp2;
+
+	tmp1 = dst;
+	tmp2 = (unsigned char *)src;
+	if (dst < src)
 	{
-		j = 0;
-		while (haystack[j] == needle[i + j])
-		{
-			if (needle[j + 1] == '\0')
-			{
-				return ((char *)haystack + i);
-			}
-			j++;
-		}
-		i++;
+		return (ft_memcpy(dst, src, len));
 	}
-	return (0);
+	if (dst > src)
+		while(len--)
+			tmp1[len] = tmp2[len];
+		return (dst);
 }
