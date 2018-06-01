@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oyawa <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/31 12:15:07 by oyawa             #+#    #+#             */
-/*   Updated: 2018/06/01 14:38:44 by oyawa            ###   ########.fr       */
+/*   Created: 2018/06/01 09:31:38 by oyawa             #+#    #+#             */
+/*   Updated: 2018/06/01 09:38:01 by oyawa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+char	*ft_strnew(size_t size)
 {
-	unsigned char *tmp1;
-	unsigned char *tmp2;
+	char *mem;
+	size_t i;
 
-	tmp1 = dst;
-	tmp2 = (unsigned char *)src;
-	if (dst < src)
+	i = 0;
+	if (!(mem = malloc(sizeof(*mem) * (size + 1))))
+		return (NULL);
+	if (mem)
 	{
-		return (ft_memcpy(dst, src, len));
+		while ( i <= size)
+		{
+			mem[i] = '\0';
+			i++;
+		}
 	}
-	if (dst > src)
-		while(len--)
-			tmp1[len] = tmp2[len];
-		return (dst);
+	return (mem);
 }

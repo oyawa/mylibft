@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oyawa <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/31 12:15:07 by oyawa             #+#    #+#             */
-/*   Updated: 2018/06/01 14:38:44 by oyawa            ###   ########.fr       */
+/*   Created: 2018/06/01 16:06:03 by oyawa             #+#    #+#             */
+/*   Updated: 2018/06/01 16:25:06 by oyawa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+int		ft_strequ(const char *s1, const char *s2)
 {
-	unsigned char *tmp1;
-	unsigned char *tmp2;
+	size_t i;
 
-	tmp1 = dst;
-	tmp2 = (unsigned char *)src;
-	if (dst < src)
+	if (!s1 || !s2)
+		return (0);
+	
+	i = 0;
+	while (s1[i] == s2[i])
 	{
-		return (ft_memcpy(dst, src, len));
+		i++;
+		if (s1[i] == '\0' && s2[i] == '\0')
+			return (1);
 	}
-	if (dst > src)
-		while(len--)
-			tmp1[len] = tmp2[len];
-		return (dst);
+	return (0);
 }
