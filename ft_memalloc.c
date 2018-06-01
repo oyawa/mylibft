@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oyawa <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/25 11:43:03 by oyawa             #+#    #+#             */
-/*   Updated: 2018/05/31 16:05:29 by oyawa            ###   ########.fr       */
+/*   Created: 2018/06/01 09:14:42 by oyawa             #+#    #+#             */
+/*   Updated: 2018/06/01 09:20:19 by oyawa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *haystack, const char *needle)
+void	*ft_memalloc(size_t size)
 {
-	int i;
-	int j;
-	
+	void *ret;
+	char *fill;
+	size_t i;
+
+	ret = (void *)malloc(size);
+	if (!ret)
+		return (NULL);
+	fill = ret;
 	i = 0;
-	if (*needle == '\0')
-		return ((char *)haystack);
-	while (haystack[i] != '\0')
+	while (i < size)
 	{
-		j = 0;
-		while (haystack[j] == needle[i + j])
-		{
-			if (needle[j + 1] == '\0')
-			{
-				return ((char *)haystack + i);
-			}
-			j++;
-		}
+		*fill++ = 0;
 		i++;
 	}
-	return (0);
+	return (ret);
 }

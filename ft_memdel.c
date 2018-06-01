@@ -1,37 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_memdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oyawa <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/25 11:43:03 by oyawa             #+#    #+#             */
-/*   Updated: 2018/05/31 16:05:29 by oyawa            ###   ########.fr       */
+/*   Created: 2018/06/01 09:20:26 by oyawa             #+#    #+#             */
+/*   Updated: 2018/06/01 09:31:29 by oyawa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *haystack, const char *needle)
+void	ft_memdel(void **ap)
 {
-	int i;
-	int j;
-	
-	i = 0;
-	if (*needle == '\0')
-		return ((char *)haystack);
-	while (haystack[i] != '\0')
+	if (ap && *ap)
 	{
-		j = 0;
-		while (haystack[j] == needle[i + j])
-		{
-			if (needle[j + 1] == '\0')
-			{
-				return ((char *)haystack + i);
-			}
-			j++;
-		}
-		i++;
+		free (*ap);
+		*ap = NULL;
 	}
-	return (0);
 }
