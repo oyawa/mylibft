@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oyawa <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/25 12:18:36 by oyawa             #+#    #+#             */
-/*   Updated: 2018/06/02 12:49:55 by oyawa            ###   ########.fr       */
+/*   Created: 2018/06/02 09:20:36 by oyawa             #+#    #+#             */
+/*   Updated: 2018/06/02 11:53:49 by oyawa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void	*dst, const void *src, size_t n)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	char *s1;
-	char *s2;
-	int i;
+	size_t i;
+	char *str;
 
 	i = 0;
-	if (n == 0 || dst == src)
-		return (dst);
-	s1 = (char *)dst;
-	s2 = (char *)src;
-	while (n > 0)
-	{
-		s1[i] = s2[i];
-		i++;
-		n--;
-	}
-	*s1 = *s2;
-	return (s1);
+	if (!s)
+		return (NULL);
+	str = ft_strnew(len);
+	if (!str)
+		return (NULL);
+	if (s)
+		while (i < len && s[start] != '\0')
+		{
+			str[i] = s[start + 1];
+			i++;
+		}
+	str[i] = '\0';
+	return (str);
 }

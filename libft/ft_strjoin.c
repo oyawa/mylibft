@@ -1,34 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oyawa <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/25 12:18:36 by oyawa             #+#    #+#             */
-/*   Updated: 2018/06/02 12:49:55 by oyawa            ###   ########.fr       */
+/*   Created: 2018/06/02 11:55:45 by oyawa             #+#    #+#             */
+/*   Updated: 2018/06/02 12:23:21 by oyawa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void	*dst, const void *src, size_t n)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char *s1;
-	char *s2;
-	int i;
+	size_t str1;
+	size_t str2;
+	char *s;
 
-	i = 0;
-	if (n == 0 || dst == src)
-		return (dst);
-	s1 = (char *)dst;
-	s2 = (char *)src;
-	while (n > 0)
+	str1 = 0;
+	str2 = 0;
+	s = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (s == NULL)
+		return NULL;
+
+	while (s1[str1] != '\0')
+		{
+			s[str1] = s1[str1];
+			str1++;
+		}
+	while (s2[str2] != '\0')
 	{
-		s1[i] = s2[i];
-		i++;
-		n--;
+		s[str1 + str2] = s2[str2];
+		str2++;
 	}
-	*s1 = *s2;
-	return (s1);
+	s[str1 +str2] = '\0';
+	return (s);
 }
