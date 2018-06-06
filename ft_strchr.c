@@ -6,21 +6,20 @@
 /*   By: oyawa <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/31 12:57:01 by oyawa             #+#    #+#             */
-/*   Updated: 2018/05/31 15:06:41 by oyawa            ###   ########.fr       */
+/*   Updated: 2018/06/06 13:47:00 by oyawa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char 	*ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (s[i])
 	{
 		if (s[i] == c)
-		
 			return ((char *)s + i);
 		i++;
 	}

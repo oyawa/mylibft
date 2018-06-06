@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oyawa <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/06 11:34:27 by oyawa             #+#    #+#             */
-/*   Updated: 2018/06/06 11:35:05 by oyawa            ###   ########.fr       */
+/*   Created: 2018/06/02 09:20:36 by oyawa             #+#    #+#             */
+/*   Updated: 2018/06/06 14:26:26 by oyawa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	if (n == -2147483648)
-		ft_putstr("-2147483648");
-	if (n < 0)
+	size_t	i;
+	char	*str;
+
+	i = 0;
+	if (!s)
+		return (NULL);
+	str = ft_strnew(len);
+	if (!str)
+		return (NULL);
+	while (i < len && s[start] != '\0')
 	{
-		ft_putchar('-');
-		n *= -1;
+		str[i] = s[start];
+		i++;
+		start++;
 	}
-	if (n >= 10)
-	{
-		ft_putnbr(n / 10);
-		ft_putchar((n % 10) + 48);
-	}
-	if (n < 10)
-	{
-		ft_putchar(n + '0');
-	}
+	return (str);
 }

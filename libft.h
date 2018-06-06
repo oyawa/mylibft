@@ -6,16 +6,15 @@
 /*   By: oyawa <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/24 10:09:11 by oyawa             #+#    #+#             */
-/*   Updated: 2018/05/31 10:55:25 by oyawa            ###   ########.fr       */
+/*   Updated: 2018/06/06 10:47:43 by oyawa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef _LIBFT_H
-#define	_LIBFT_H
-
-#include <string.h>
-#include <stdlib.h>
-#include <unistd.h>
+# define _LIBFT_H
+# include <string.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);

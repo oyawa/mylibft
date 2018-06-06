@@ -6,7 +6,7 @@
 /*   By: oyawa <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/31 12:15:07 by oyawa             #+#    #+#             */
-/*   Updated: 2018/06/01 14:38:44 by oyawa            ###   ########.fr       */
+/*   Updated: 2018/06/06 11:22:37 by oyawa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 		return (ft_memcpy(dst, src, len));
 	}
 	if (dst > src)
-		while(len--)
+		while (len--)
 			tmp1[len] = tmp2[len];
-		return (dst);
+	return (dst);
 }

@@ -6,17 +6,17 @@
 /*   By: oyawa <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/25 12:18:36 by oyawa             #+#    #+#             */
-/*   Updated: 2018/05/30 11:19:03 by oyawa            ###   ########.fr       */
+/*   Updated: 2018/06/06 11:20:45 by oyawa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void	*dst, const void *src, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	char *s1;
-	char *s2;
-	int i;
+	char	*s1;
+	char	*s2;
+	int		i;
 
 	i = 0;
 	if (n == 0 || dst == src)

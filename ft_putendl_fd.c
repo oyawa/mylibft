@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: oyawa <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/06/06 11:33:16 by oyawa             #+#    #+#             */
+/*   Updated: 2018/06/06 11:33:18 by oyawa            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void	ft_putendl_fd(char const *s, int fd)
@@ -5,9 +17,9 @@ void	ft_putendl_fd(char const *s, int fd)
 	if (s)
 	{
 		while (*s)
-			if(!write(fd, s++, 1))
+			if (!write(fd, s++, 1))
 				return ;
 		if (!write(fd, "\n", 1))
-				return ;
+			return ;
 	}
 }
