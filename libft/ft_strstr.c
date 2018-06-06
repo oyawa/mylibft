@@ -6,7 +6,7 @@
 /*   By: oyawa <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/25 11:43:03 by oyawa             #+#    #+#             */
-/*   Updated: 2018/05/31 16:05:29 by oyawa            ###   ########.fr       */
+/*   Updated: 2018/06/05 10:30:48 by oyawa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,13 @@ char	*ft_strstr(const char *haystack, const char *needle)
 	while (haystack[i] != '\0')
 	{
 		j = 0;
-		while (haystack[j] == needle[i + j])
+		while (haystack[i + j] == needle[j] && (haystack[i + j] && needle[j]))
 		{
-			if (needle[j + 1] == '\0')
-			{
-				return ((char *)haystack + i);
-			}
 			j++;
 		}
+			if (needle[j] == '\0')
+				return ((char *)haystack + i);
 		i++;
 	}
-	return (0);
+	return (NULL);
 }

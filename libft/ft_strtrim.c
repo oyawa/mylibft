@@ -1,33 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oyawa <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/02 09:20:36 by oyawa             #+#    #+#             */
-/*   Updated: 2018/06/05 11:12:27 by oyawa            ###   ########.fr       */
+/*   Created: 2018/06/05 14:06:25 by oyawa             #+#    #+#             */
+/*   Updated: 2018/06/05 15:39:47 by oyawa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+char	*ft_strtrim(const char *s)
 {
-	size_t i;
-	char *str;
+	int i;
+	int j;
+	int k;
+	char *dst;
 
-	i = 0;
 	if (!s)
 		return (NULL);
-	str = ft_strnew(len);
-	if (!str)
+	i = 0;
+	j = (int)ft_strlen(s) - 1 ;
+
+	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
+		i++;
+	while ((s[j] == ' ' || s[i] == '\n' || s[i] == '\t') && (i < j))
+		j--;
+//	dst = ft_strnew(j - i);
+	if (!(dst = (char *)malloc(sizeof(char) * ( j - i + 1))))
 		return (NULL);
-	while (i < len && s[start] != '\0')
-		{
-			str[i] = s[start];
-			i++;
-			start++;
-		}
-	return (str);
+	k = 0;
+	while (i <= j)
+	{
+		dst[k++] = s[i++];
+	}
+	dst[k] = '\0';
+	return (dst);
 }
