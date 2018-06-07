@@ -6,7 +6,7 @@
 /*   By: oyawa <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/01 09:31:38 by oyawa             #+#    #+#             */
-/*   Updated: 2018/06/06 14:17:03 by oyawa            ###   ########.fr       */
+/*   Updated: 2018/06/07 10:32:10 by oyawa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strnew(size_t size)
 	size_t	i;
 
 	i = 0;
-	if (!(mem = malloc(sizeof(*mem) * (size + 1))))
+	if (!(mem = (char *)malloc(size + 1)))
 		return (NULL);
 	if (mem)
 	{
