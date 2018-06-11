@@ -6,7 +6,7 @@
 /*   By: oyawa <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/25 09:36:41 by oyawa             #+#    #+#             */
-/*   Updated: 2018/05/28 10:01:26 by oyawa            ###   ########.fr       */
+/*   Updated: 2018/06/06 14:12:41 by oyawa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
-	size_t i;
-	int str;
+	size_t	i;
+	size_t	str;
 
 	i = 0;
 	str = 0;

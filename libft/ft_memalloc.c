@@ -6,7 +6,7 @@
 /*   By: oyawa <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/01 09:14:42 by oyawa             #+#    #+#             */
-/*   Updated: 2018/06/02 12:56:37 by oyawa            ###   ########.fr       */
+/*   Updated: 2018/06/06 11:15:14 by oyawa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,14 @@
 
 void	*ft_memalloc(size_t size)
 {
-	void *ret;
-	char *fill;
-	size_t i;
-	
+	void	*ret;
+	char	*fill;
+	size_t	i;
+
 	ret = (void *)malloc(size);
 	if (!ret)
 		return (NULL);
 	fill = ret;
-
 	i = 0;
 	while (i < size)
 	{

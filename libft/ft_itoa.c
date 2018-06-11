@@ -1,33 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oyawa <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/06 11:34:27 by oyawa             #+#    #+#             */
-/*   Updated: 2018/06/06 11:35:05 by oyawa            ###   ########.fr       */
+/*   Created: 2018/06/11 11:25:17 by oyawa             #+#    #+#             */
+/*   Updated: 2018/06/11 11:58:38 by oyawa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+static int	ft_get_length(int n)
 {
-	if (n == -2147483648)
-		ft_putstr("-2147483648");
+	size_t i;
+
+	i = 1;
+	while (n /= 10)
+		i++;
+	return (i);
+}
+
+char		*ft_itoa(int n)
+{
+	char			*str;
+	size_t			len;
+	unsigned int	tmp;
+
+	len = ft_get_length(n);
+	tmp = n;
 	if (n < 0)
 	{
-		ft_putchar('-');
-		n *= -1;
+		tmp = -n;
+		len++;
 	}
-	if (n >= 10)
-	{
-		ft_putnbr(n / 10);
-		ft_putchar((n % 10) + 48);
-	}
-	if (n < 10)
-	{
-		ft_putchar(n + '0');
-	}
+	if (!(str = ft_strnew(len)))
+		return (NULL);
+	str[--len] = tmp % 10 + '0';
+	while (tmp /= 10)
+		str[--len] = tmp % 10 + '0';
+	if (n < 0)
+		str[0] = '-';
+	return (str);
 }

@@ -6,36 +6,26 @@
 /*   By: oyawa <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/05 14:06:25 by oyawa             #+#    #+#             */
-/*   Updated: 2018/06/05 15:39:47 by oyawa            ###   ########.fr       */
+/*   Updated: 2018/06/07 10:00:30 by oyawa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(const char *s)
+char	*ft_strtrim(char const *s)
 {
-	int i;
-	int j;
-	int k;
-	char *dst;
+	size_t i;
+	size_t j;
 
 	if (!s)
 		return (NULL);
 	i = 0;
-	j = (int)ft_strlen(s) - 1 ;
-
 	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
 		i++;
-	while ((s[j] == ' ' || s[i] == '\n' || s[i] == '\t') && (i < j))
+	if (s[i] == '\0')
+		return (ft_strnew(0));
+	j = ft_strlen(s) - 1;
+	while (s[j] == ' ' || s[j] == '\n' || s[j] == '\t')
 		j--;
-//	dst = ft_strnew(j - i);
-	if (!(dst = (char *)malloc(sizeof(char) * ( j - i + 1))))
-		return (NULL);
-	k = 0;
-	while (i <= j)
-	{
-		dst[k++] = s[i++];
-	}
-	dst[k] = '\0';
-	return (dst);
+	return (ft_strsub(s, i, j - i + 1));
 }
