@@ -6,11 +6,12 @@
 /*   By: oyawa <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/31 12:57:01 by oyawa             #+#    #+#             */
-/*   Updated: 2018/06/06 13:47:00 by oyawa            ###   ########.fr       */
+/*   Updated: 2018/06/12 16:30:16 by oyawa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 char	*ft_strchr(const char *s, int c)
 {

@@ -6,7 +6,7 @@
 /*   By: oyawa <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/25 10:36:49 by oyawa             #+#    #+#             */
-/*   Updated: 2018/06/06 11:17:22 by oyawa            ###   ########.fr       */
+/*   Updated: 2018/06/14 15:18:24 by oyawa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,12 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 	i = 0;
 	dest = (char *)dst;
 	sourc = (char *)src;
-	while (i < n && sourc[i] != (char)c)
+	while (i < n)
 	{
 		dest[i] = sourc[i];
+		if (sourc[i] == (char)c)
+			return (dest + i + 1);
 		i++;
-	}
-	if (i > 0 && sourc[i] == (char)c || '\0')
-	{
-		dest[i] = sourc[i];
-		return (dest + i + 1);
 	}
 	return (NULL);
 }
